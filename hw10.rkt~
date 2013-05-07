@@ -21,9 +21,9 @@
       (cond
  	  [(or (null? l) (null? (cdr l))) l]
           [else (cons (car l) (append (make-palindrome (cdr l)) (list (car l))))])))
-		
+
 (define make-palindrome-acc
-  (lambda (l acc1 acc2) 
-        (if (null? (cdr l))
-            (append acc1 l acc2)
-            (make-palindrome-acc (cdr l) (append acc1 (list (car l))) (append (list (car l)) acc2)))))
+  (lambda (l acc)
+    (cond
+      [(or (null? l) (null? (cdr l))) acc]
+      [else (make-palindrome-acc )])))
